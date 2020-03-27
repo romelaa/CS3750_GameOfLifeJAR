@@ -1,4 +1,8 @@
 ﻿@page
+    
+<canvas id="canvas" width="800" height="800"></canvas>
+
+
 <div class="container">
     <div class="row">&nbsp;</div>
     <div class="row">
@@ -28,3 +32,37 @@
 </div>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/chat.js"></script>
+
+<script id="jsbin-javascript">
+    var canvas = document.getElementById("canvas"),
+        c = canvas.getContext("2d");
+    canvas.addEventListener('click', handleClick);
+
+    function drawBox() {
+        c.beginPath();
+        c.fillStyle = "white";
+        c.lineWidth = 3;
+        c.strokeStyle = 'black';
+        for (var row = 0; row < 16; row++) {
+            for (var column = 0; column < 16; column++) {
+                var x = column * 50;
+                var y = row * 50;
+                c.rect(x, y, 50, 50);
+                c.fill();
+                c.stroke();
+            }
+        }
+        c.closePath();
+    }
+
+    function handleClick(e) {
+        c.fillStyle = 'hsl(' + 360 * Math.random() + ', 50%, 50%)';
+
+        c.fillRect(Math.floor(e.offsetX / 50) * 50,
+            Math.floor(e.offsetY / 50) * 50,
+            50, 50);
+    }
+
+    drawBox();
+
+</script>

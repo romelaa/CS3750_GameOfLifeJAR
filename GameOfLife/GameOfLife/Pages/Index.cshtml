@@ -1,7 +1,13 @@
 ﻿@page
-    
+
 <canvas id="canvas" width="800" height="800"></canvas>
 
+<input type="button" value="Next" />
+
+<script src="js/jscolor.js"></script>
+
+Color:
+<input class="jscolor" value="ab2567" id="selectedColor">
 
 <div class="container">
     <div class="row">&nbsp;</div>
@@ -56,7 +62,8 @@
     }
 
     function handleClick(e) {
-        c.fillStyle = 'hsl(' + 360 * Math.random() + ', 50%, 50%)';
+        var selectedColor = document.getElementById("selectedColor").value;
+        c.fillStyle = "#" + selectedColor;
 
         c.fillRect(Math.floor(e.offsetX / 50) * 50,
             Math.floor(e.offsetY / 50) * 50,

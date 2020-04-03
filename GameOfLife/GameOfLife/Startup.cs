@@ -52,7 +52,7 @@ namespace GameOfLife
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                endpoints.MapHub<GameHub>("/gameHub");
+                endpoints.MapHub<ChatHub>("/chatHub");
             });
         }
     }

@@ -1,6 +1,6 @@
 ﻿@page
 
-    <body>
+
         <canvas id="canvas" width="800" height="800"></canvas>
         <br />
         <input type="button" value="Play" onclick="sendPlay()" id="play" />
@@ -12,62 +12,85 @@
         Color:
         <input class="jscolor" value="ab2567" id="selectedColor">
 
-    </body>
+
+        <div class="container">
+            <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="col-2">User</div>
+                <div class="col-4"><input type="text" id="userInput" /></div>
+            </div>
+            <div class="row">
+                <div class="col-2">Message</div>
+                <div class="col-4"><input type="text" id="messageInput" /></div>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="col-6">
+                    <input type="button" id="sendButton" value="Send Message" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <ul id="messagesList"></ul>
+            </div>
+        </div>
 
 
-    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
 
-    <script id="jsbin-javascript">
-       
-        var connection = new signalR.HubConnectionBuilder().withUrl("/gameHub").build();
+<script id="jsbin-javascript">
 
-        connection.start().then(function () {
-            console.log("connected");
-        });
-
-        let server = connection.server;
-        let canvas  = document.getElementById("canvas"),
+    
+    let server = connection.server;
+    let canvas = document.getElementById("canvas"),
         c = canvas.getContext("2d");
-        canvas.addEventListener('click', handleClick);
+    canvas.addEventListener('click', handleClick);
 
-        function drawBox() {
-            c.beginPath();
-            c.fillStyle = "white";
-            c.lineWidth = 3;
-            c.strokeStyle = 'black';
-            for (var row = 0; row < 16; row++) {
-                for (var column = 0; column < 16; column++) {
-                    var x = column * 50;
-                    var y = row * 50;
-                    c.rect(x, y, 50, 50);
-                    c.fill();
-                    c.stroke();
-                }
+    function drawBox() {
+        c.beginPath();
+        c.fillStyle = "white";
+        c.lineWidth = 3;
+        c.strokeStyle = 'black';
+        for (var row = 0; row < 16; row++) {
+            for (var column = 0; column < 16; column++) {
+                var x = column * 50;
+                var y = row * 50;
+                c.rect(x, y, 50, 50);
+                c.fill();
+                c.stroke();
             }
-            c.closePath();
         }
+        c.closePath();
+    }
 
-        function handleClick(e) {
-                var selectedColor = document.getElementById("selectedColor").value;
-                c.fillStyle = "#" + selectedColor;
+    function handleClick(e) {
+        var selectedColor = document.getElementById("selectedColor").value;
+        c.fillStyle = "#" + selectedColor;
 
-                c.fillRect(Math.floor(e.offsetX / 50) * 50,
-                    Math.floor(e.offsetY / 50) * 50,
-                    48, 48);
-        }
+        c.fillRect(Math.floor(e.offsetX / 50) * 50,
+            Math.floor(e.offsetY / 50) * 50,
+            48, 48);
+    }
 
-        function sendPlay() {
-            document.getElementById("play").addEventListener();
-        }
-                
-        function sendPause() {
+    function sendPlay() {
+        document.getElementById("play").addEventListener();
+    }
 
-        }
+    function sendPause() {
 
-        function sendReset() {
+    }
 
-        }
+    function sendReset() {
 
-        drawBox();
+    }
 
-    </script>
+    drawBox();
+
+</script>

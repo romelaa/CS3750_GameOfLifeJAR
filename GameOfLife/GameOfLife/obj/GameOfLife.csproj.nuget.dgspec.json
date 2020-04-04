@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CS3750_GameOfLifeJAR\\GameOfLife\\GameOfLife\\GameOfLife.csproj": {}
+    "C:\\Users\\azizy\\source\\CS3750_GameOfLifeJAR\\GameOfLife\\GameOfLife\\GameOfLife.csproj": {}
   },
   "projects": {
-    "D:\\CS3750_GameOfLifeJAR\\GameOfLife\\GameOfLife\\GameOfLife.csproj": {
+    "C:\\Users\\azizy\\source\\CS3750_GameOfLifeJAR\\GameOfLife\\GameOfLife\\GameOfLife.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CS3750_GameOfLifeJAR\\GameOfLife\\GameOfLife\\GameOfLife.csproj",
+        "projectUniqueName": "C:\\Users\\azizy\\source\\CS3750_GameOfLifeJAR\\GameOfLife\\GameOfLife\\GameOfLife.csproj",
         "projectName": "GameOfLife",
-        "projectPath": "D:\\CS3750_GameOfLifeJAR\\GameOfLife\\GameOfLife\\GameOfLife.csproj",
-        "packagesPath": "C:\\Users\\payzangmkt2\\.nuget\\packages\\",
-        "outputPath": "D:\\CS3750_GameOfLifeJAR\\GameOfLife\\GameOfLife\\obj\\",
+        "projectPath": "C:\\Users\\azizy\\source\\CS3750_GameOfLifeJAR\\GameOfLife\\GameOfLife\\GameOfLife.csproj",
+        "packagesPath": "C:\\Users\\azizy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\azizy\\source\\CS3750_GameOfLifeJAR\\GameOfLife\\GameOfLife\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\payzangmkt2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\azizy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

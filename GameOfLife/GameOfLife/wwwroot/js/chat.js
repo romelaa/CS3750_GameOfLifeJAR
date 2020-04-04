@@ -45,15 +45,18 @@ function handleClick(e) {
         Math.floor(y / 50) * 50,
         48, 48);
 
-    var cellNum = (x / 50) + (y / 50);
+    var row = Math.floor(x / 50);
+    var col = Math.floor(y / 50);
 
+    var cellNum = row + (col * 16);
     var li = document.createElement("li");
-    li.textContent = "hello from  cell " + cellNum;
+    li.textContent = "hello from  cell " + row + " " + col + " " + cellNum;
     document.getElementById("messagesList").appendChild(li);
 
-    connection.invoke("NewCells", x, y);
+    connection.invoke("NewCells", cellNum).catch(function (err) {
+        return console.error(err.toString());
+    });
 }
-
 
 
 connection.on("ReceiveMessage", function (user, message) {

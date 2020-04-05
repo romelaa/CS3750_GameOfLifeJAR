@@ -2,7 +2,6 @@
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
-
 connection.start().then(function () {
     console.log("Connected.");
     document.getElementById("sendButton").disabled = false;
@@ -14,6 +13,9 @@ connection.start().then(function () {
 let canvas = document.getElementById("canvas"), c = canvas.getContext("2d");
 let numOfCells = 16;
 let canvasWH = 800;
+var cellsArray = [];
+
+
 
 canvas.addEventListener('click', handleClick);
 
@@ -36,6 +38,7 @@ function drawBox() {
 
 function handleClick(e) {
     var selectedColor = document.getElementById("selectedColor").value;
+
     c.fillStyle = "#" + selectedColor;
 
     let x = e.offsetX;
@@ -49,9 +52,10 @@ function handleClick(e) {
     var col = Math.floor(y / 50);
 
     var cellNum = row + (col * 16);
-    var li = document.createElement("li");
-    li.textContent = "hello from  cell " + row + " " + col + " " + cellNum;
-    document.getElementById("messagesList").appendChild(li);
+
+    cellsArray.push(cellNum);
+
+    console.log(cellsArray);
 
     connection.invoke("NewCells", cellNum).catch(function (err) {
         return console.error(err.toString());

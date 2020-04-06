@@ -11,10 +11,9 @@ connection.start().then(function () {
 });
 
 let canvas = document.getElementById("canvas"), c = canvas.getContext("2d");
-let numOfCells = 16;
-let canvasWH = 800;
-var cellsArray = [];
 
+var [] cells;
+var cellNum;
 
 
 canvas.addEventListener('click', handleClick);
@@ -33,7 +32,6 @@ function drawBox() {
             c.stroke();
         }
     }
-    c.closePath();
 }
 
 function handleClick(e) {
@@ -51,16 +49,23 @@ function handleClick(e) {
     var row = Math.floor(x / 50);
     var col = Math.floor(y / 50);
 
-    var cellNum = row + (col * 16);
+    cellNum = row + (col * 16);
 
-    cellsArray.push(cellNum);
 
-    console.log(cellsArray);
+    console.log(cells);
 
     connection.invoke("NewCells", cellNum).catch(function (err) {
         return console.error(err.toString());
     });
 }
+
+connection.on("UpdateCells", (cellsFromServer) => {
+    // empty and fill cell array
+    cells = [];
+    cellsFromServer.forEach(element => cells.push(new cell(cellNum)));
+    console.log("updating board");
+    drawBox();
+});
 
 
 connection.on("ReceiveMessage", function (user, message) {

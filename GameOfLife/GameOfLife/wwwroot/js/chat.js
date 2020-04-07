@@ -32,6 +32,13 @@ function drawBox() {
             c.stroke();
         }
     }
+    c.closePath();
+
+    for (var i = 0; i < 256; i++) {
+        var cell = new Object();
+        cell.color = "#FFFFFF";
+        cells[i] = cell;
+    }
 }
 
 function handleClick(e) {
@@ -50,15 +57,23 @@ function handleClick(e) {
     var col = Math.floor(y / 50);
 
     cellNum = row + (col * 16);*/
+
     var selectedColor = document.getElementById("selectedColor").value;
-    //c.fillStyle = "#" + selectedColor;
+
     //create an array of cell objects that draws the gameboard the objects holds
     //the state(dead or alive) and color
 
     console.log(cells[cellNum]);
-    var x = Math.floor(e.offsetX / 50);
-    var y = Math.floor(e.offsetY / 50);
-    cellNum = (x + (y * 16));
+
+    let x = e.offsetX;
+    let y = e.offsetY;
+
+   
+
+    var row = Math.floor(x / 50);
+    var col = Math.floor(y / 50);
+
+    cellNum = row + (col * 16);
 
 
     if (cells[cellNum].color != "#FFFFFF") {
@@ -72,8 +87,9 @@ function handleClick(e) {
 
     }
 
-
-    c.fillRect((x * 50) + 1, (y * 50) + 1, 47, 47);
+    c.fillRect(Math.floor(x / 50) * 50,
+        Math.floor(y / 50) * 50,
+        47, 47);
 
     console.log(cells);
 

@@ -12,7 +12,7 @@ connection.start().then(function () {
 
 let canvas = document.getElementById("canvas"), c = canvas.getContext("2d");
 
-var [] cells;
+var cells = [];
 var cellNum;
 
 
@@ -35,7 +35,7 @@ function drawBox() {
 }
 
 function handleClick(e) {
-    var selectedColor = document.getElementById("selectedColor").value;
+  /*  var selectedColor = document.getElementById("selectedColor").value;
 
     c.fillStyle = "#" + selectedColor;
 
@@ -49,8 +49,31 @@ function handleClick(e) {
     var row = Math.floor(x / 50);
     var col = Math.floor(y / 50);
 
-    cellNum = row + (col * 16);
+    cellNum = row + (col * 16);*/
+    var selectedColor = document.getElementById("selectedColor").value;
+    //c.fillStyle = "#" + selectedColor;
+    //create an array of cell objects that draws the gameboard the objects holds
+    //the state(dead or alive) and color
 
+    console.log(cells[cellNum]);
+    var x = Math.floor(e.offsetX / 50);
+    var y = Math.floor(e.offsetY / 50);
+    cellNum = (x + (y * 16));
+
+
+    if (cells[cellNum].color != "#FFFFFF") {
+        c.fillStyle = "#FFFFFF"
+        cells[cellNum].color = "#FFFFFF";
+
+    }
+    else {
+        c.fillStyle = "#" + selectedColor;
+        cells[cellNum].color = "#" + selectedColor;
+
+    }
+
+
+    c.fillRect((x * 50) + 1, (y * 50) + 1, 47, 47);
 
     console.log(cells);
 
@@ -59,13 +82,7 @@ function handleClick(e) {
     });
 }
 
-connection.on("UpdateCells", (cellsFromServer) => {
-    // empty and fill cell array
-    cells = [];
-    cellsFromServer.forEach(element => cells.push(new cell(cellNum)));
-    console.log("updating board");
-    drawBox();
-});
+
 
 
 connection.on("ReceiveMessage", function (user, message) {

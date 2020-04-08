@@ -42,21 +42,6 @@ function drawBox() {
 }
 
 function handleClick(e) {
-  /*  var selectedColor = document.getElementById("selectedColor").value;
-
-    c.fillStyle = "#" + selectedColor;
-
-    let x = e.offsetX;
-    let y = e.offsetY;
-
-    c.fillRect(Math.floor(x / 50) * 50,
-        Math.floor(y / 50) * 50,
-        48, 48);
-
-    var row = Math.floor(x / 50);
-    var col = Math.floor(y / 50);
-
-    cellNum = row + (col * 16);*/
 
     var selectedColor = document.getElementById("selectedColor").value;
 
@@ -98,8 +83,31 @@ function handleClick(e) {
     });
 }
 
+function sendPlay() {
+    jsonPass();
+}
 
+function jsonPass() {
 
+    var JSONObject = { cells: [] };
+    var cell;
+    for (var s = 0; s < 256; s++) {
+        cell = { id: s, username: cellNum + s };
+        JSONObject.cell.push(cell);
+    }
+
+    $.ajax({
+        url: "Default.aspx/jsonConversionToArray",
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(JSONObject),
+        async: true,
+        cache: false,
+        success: function (msg) {
+            alert(msg.d);
+        }
+    });
+}
 
 connection.on("ReceiveMessage", function (user, message) {
     var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

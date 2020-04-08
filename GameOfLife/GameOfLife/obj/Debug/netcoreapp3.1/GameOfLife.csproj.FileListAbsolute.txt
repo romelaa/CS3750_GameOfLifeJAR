@@ -49,7 +49,6 @@ C:\Users\azizy\source\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\bin\Debug\netco
 C:\Users\azizy\source\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\obj\Debug\netcoreapp3.1\GameOfLife.csprojAssemblyReference.cache
 C:\Users\azizy\source\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\obj\Debug\netcoreapp3.1\staticwebassets\GameOfLife.StaticWebAssets.Manifest.cache
 C:\Users\azizy\source\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\obj\Debug\netcoreapp3.1\staticwebassets\GameOfLife.StaticWebAssets.xml
-C:\Users\azizy\source\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\obj\Debug\netcoreapp3.1\GameOfLife.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\azizy\source\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\obj\Debug\netcoreapp3.1\GameOfLife.RazorAssemblyInfo.cache
 C:\Users\azizy\source\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\obj\Debug\netcoreapp3.1\GameOfLife.RazorAssemblyInfo.cs
 C:\Users\azizy\source\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\obj\Debug\netcoreapp3.1\GameOfLife.AssemblyInfoInputs.cache
@@ -106,3 +105,4 @@ D:\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\obj\Debug\netcoreapp3.1\GameOfLife
 D:\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\obj\Debug\netcoreapp3.1\GameOfLife.dll
 D:\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\obj\Debug\netcoreapp3.1\GameOfLife.pdb
 D:\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\obj\Debug\netcoreapp3.1\GameOfLife.csproj.CopyComplete
+C:\Users\azizy\source\CS3750_GameOfLifeJAR\GameOfLife\GameOfLife\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
